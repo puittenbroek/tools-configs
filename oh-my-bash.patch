@@ -1,0 +1,66 @@
+diff --git a/plugins/git/git.plugin.sh b/plugins/git/git.plugin.sh
+index 29be3e6..d089e61 100644
+--- a/plugins/git/git.plugin.sh
++++ b/plugins/git/git.plugin.sh
+@@ -24,11 +24,11 @@ function _git_log_prettily(){
+   fi
+ }
+ # Warn if the current branch is a WIP
+-function work_in_progress() {
+-  if $(git log -n 1 2>/dev/null | grep -q -c "\-\-wip\-\-"); then
+-    echo "WIP!!"
+-  fi
+-}
++# function work_in_progress() {
++#   if $(git log -n 1 2>/dev/null | grep -q -c "\-\-wip\-\-"); then
++#     echo "WIP!!"
++#   fi
++# }
+ 
+ #
+ # Aliases
+diff --git a/themes/agnoster/agnoster.theme.sh b/themes/agnoster/agnoster.theme.sh
+index 10a961c..24a9012 100644
+--- a/themes/agnoster/agnoster.theme.sh
++++ b/themes/agnoster/agnoster.theme.sh
+@@ -107,6 +107,7 @@ fg_color() {
+         magenta)    echo 35;;
+         cyan)       echo 36;;
+         white)      echo 37;;
++        lightorange)     echo 38\;5\;136;;
+         orange)     echo 38\;5\;166;;
+     esac
+ }
+@@ -121,6 +122,7 @@ bg_color() {
+         magenta)    echo 45;;
+         cyan)       echo 46;;
+         white)      echo 47;;
++        lightorange)     echo 48\;5\;136;;
+         orange)     echo 48\;5\;166;;
+     esac;
+ }
+@@ -214,11 +216,13 @@ prompt_virtualenv() {
+ 
+         # The last word of the output of `python --version`
+         # corresponds to the version number.
+-        VENV_VERSION=$(echo $VERSION_OUTPUT | awk '{print $NF}')
++        # VENV_VERSION=$(echo $VERSION_OUTPUT | awk '{print $NF}')
+ 
+-        color=cyan
+-        prompt_segment $color $PRIMARY_FG
+-        prompt_segment $color white "$(basename $VENV_VERSION)"
++        VIRTUAL_ENV_NAME=$(basename "$VIRTUAL_ENV")
++
++        color=lightorange
++        prompt_segment red $PRIMARY_FG
++        prompt_segment red black "$VIRTUAL_ENV_NAME"
+     fi
+ }
+ 
+@@ -425,5 +429,6 @@ _omb_theme_PROMPT_COMMAND() {
+     # uncomment below to use right prompt
+     #     PS1='\[$(tput sc; printf "%*s" $COLUMNS "$PRIGHT"; tput rc)\]'$PR
+     PS1=$PR
++    set_title $PWD
+ }
+ _omb_util_add_prompt_command _omb_theme_PROMPT_COMMAND
