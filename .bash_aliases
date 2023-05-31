@@ -118,23 +118,8 @@ done
 function start_vpn() {
     screen -t "start_vpn" bash -c "sudo openvpn --config /etc/openvpn/myvpn/myvpn.ovpn"
 }
-function updateapp(){
-    if [ -z "${VIRTUAL_ENV}" ]; then
-        name=$(basename `pwd`)
-        workon $name
-        if [ -n "${VIRTUAL_ENV}" ]; then
-            echo "Activated '${name}' virtualenv for you";
-        else
-            echo "No virtualenv found for $name"
-            return
-        fi
-    fi
-    clean
-    rm  -rf /home/uittenbroek/projects/xs2event-ops/output
-    ./build.sh config INVENTORY=production
-    installreq
-}
 
+# Lazy man aliases.
 alias doco=docker-compose
 alias gs="git status"
 alias gp="git pull -p"

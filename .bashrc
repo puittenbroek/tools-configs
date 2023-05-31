@@ -87,7 +87,7 @@ plugins=(
 
 # Which plugins would you like to conditionally load? (plugins can be found in ~/.oh-my-bash/plugins/*)
 # Custom plugins may be added to ~/.oh-my-bash/custom/plugins/
-# Example format: 
+# Example format:
 #  if [ "$DISPLAY" ] || [ "$SSH" ]; then
 #      plugins+=(tmux-autoattach)
 #  fi
@@ -125,7 +125,7 @@ source "$OSH"/oh-my-bash.sh
 export PATH="$PATH:$HOME/.local/bin"
 
 # Virtualenvwrapper
-export VIRTUALENVWRAPPER_PYTHON=/home/uittenbroek/.pyenv/shims/python3.9
+export VIRTUALENVWRAPPER_PYTHON=/home/uittenbroek/.pyenv/shims/python3.10
 export WORKON_HOME="$HOME/.virtualenvs"
 export PROJECT_HOME="$HOME/projects"
 source /usr/local/bin/virtualenvwrapper.sh
