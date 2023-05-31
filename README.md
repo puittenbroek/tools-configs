@@ -151,7 +151,28 @@ Visualsing what part of your code is hit by your tests, helps you write better t
 * [Factory boy](https://factoryboy.readthedocs.io/en/stable/)
 * [Coverage](https://github.com/nedbat/coveragepy)
 
+## Deployment
 
+* Gitlab pipelines (CD)
+* [Kubernetes](https://kubernetes.io/)
+* [Helm charts](https://helm.sh/)
+
+
+## Error handling
+
+* [Sentry](https://sentry.io/welcome/)
+
+You can host it yourself (using helm charts), but it can be quite a pain in the ass and resource consumption is relatively high.
+Benefit is that you do have your data on-premise.
+
+## Performance profiling
+
+* [Newrelic](https://newrelic.com/)
+* [Sentry](https://sentry.io/for/profiling/?utm_medium=email&utm_source=marketo&utm_campaign=profiling-gta-fy24q2-profiling&utm_content=webpage)
+
+And when working locally, there are also some great tools (suggestions welcome!):
+
+* [Line profiler](https://github.com/pyutils/line_profiler)
 
 ## Other tools
 
